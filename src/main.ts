@@ -92,6 +92,6 @@ export default defineAgent({
 cli.runApp(
   new ServerOptions({
     agent: fileURLToPath(import.meta.url),
-    agentName: 'changename',
+    ...(process.env.AGENT_NAME && { agentName: process.env.AGENT_NAME }),
   }),
 );
